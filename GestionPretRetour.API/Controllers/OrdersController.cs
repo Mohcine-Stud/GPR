@@ -18,10 +18,12 @@ namespace GestionPretRetour.API.Controllers
         [HttpPost("CreateOrder")]
         public async Task<IActionResult> CreateOrder(CreateOrderCommand command)
         {
-            await Task.CompletedTask;
+            var createOrderResult = await _mediator.Send(command);
 
-            var createOrderResult = _mediator.Send(command);
-
+            if(createOrderResult == null)
+            {
+                return BadRequest("no order has been created...!");
+            }
 
             return Ok(createOrderResult);
         }

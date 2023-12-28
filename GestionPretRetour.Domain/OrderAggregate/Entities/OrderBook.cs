@@ -19,4 +19,8 @@ public class OrderBook
     {
         return new OrderBook(id, expectedReturnDate);
     }
+    public void AddActualReturnDate(DateTime date)
+    {
+        ActualReturnDate = date;
+    }
 }

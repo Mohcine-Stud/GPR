@@ -12,7 +12,7 @@ public sealed class User
     private User(Guid userId)
     {
         Id = userId;
-        AttemptsNumber = 0;
+        AttemptsNumber = 1;
     }
 
     public static User Create(Guid userId)
