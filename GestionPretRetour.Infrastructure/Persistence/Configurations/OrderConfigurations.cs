@@ -1,5 +1,5 @@
 ﻿using GestionPretRetour.Domain.OrderAggregate;
-using GestionPretRetour.Domain.Users;
+using GestionPretRetour.Domain.UserAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,8 +18,8 @@ public class OrderConfigurations : IEntityTypeConfiguration<Order>
         builder.OwnsMany(o => o.Books, booksBuilder =>
         {
             booksBuilder.ToTable("OrderBooks");
-            booksBuilder.WithOwner().HasForeignKey("OrderId");
-            booksBuilder.HasKey("Id", "OrderId");
+            booksBuilder.WithOwner().HasForeignKey(b => b.OrderId);
+            booksBuilder.HasKey("Id");
             booksBuilder.Property(b => b.Id).ValueGeneratedNever();
         });
         builder.Metadata.FindNavigation(nameof(Order.Books))!

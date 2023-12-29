@@ -1,8 +1,8 @@
 ﻿using Azure.Core.Pipeline;
 using GestionPretRetour.Domain.OrderAggregate;
 using GestionPretRetour.Domain.OrderAggregate.Entities;
-using GestionPretRetour.Domain.Users;
-using GestionPretRetour.Domain.Users.ValueObjects;
+using GestionPretRetour.Domain.UserAggregate;
+using GestionPretRetour.Domain.UserAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 
@@ -16,6 +16,11 @@ public class ApplicationDbContext : DbContext
         
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+    }
 
     public DbSet<Order> Orders { get; set; }
     public DbSet<User> Users { get; set; }

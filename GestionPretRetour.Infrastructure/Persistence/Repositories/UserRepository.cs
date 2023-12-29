@@ -1,5 +1,5 @@
 ﻿using GestionPretRetour.Application.Persistence.Repositories;
-using GestionPretRetour.Domain.Users;
+using GestionPretRetour.Domain.UserAggregate;
 
 namespace GestionPretRetour.Infrastructure.Persistence.Repositories;
 

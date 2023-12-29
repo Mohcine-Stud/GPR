@@ -1,4 +1,5 @@
-﻿using GestionPretRetour.Domain.Users;
+﻿using GestionPretRetour.Domain.UserAggregate;
+using GestionPretRetour.Domain.UserAggregate.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,7 +19,11 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
         {
             pb.ToTable("UserPenalties");
             pb.HasKey(p => p.Id);
-            pb.WithOwner().HasForeignKey("UserId");
+            pb.WithOwner().HasForeignKey(p => p.UserId);
+            pb.Property(p => p.PenaltyType)
+                .HasConversion(
+                    c => c.ToString(),
+                    c => Enum.Parse<PenaltyType>(c));
         });
         builder.Metadata.FindNavigation(nameof(User.Penalties))!
             .SetPropertyAccessMode(PropertyAccessMode.Field);

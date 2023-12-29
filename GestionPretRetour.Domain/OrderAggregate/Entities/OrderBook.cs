@@ -5,6 +5,7 @@ public class OrderBook
     public Guid Id { get; private set; }
     public DateTime ExpectedReturnDate { get; private set; }
     public DateTime? ActualReturnDate { get; private set; }
+    public Guid OrderId { get; private set; }
 
     public OrderBook()
     {

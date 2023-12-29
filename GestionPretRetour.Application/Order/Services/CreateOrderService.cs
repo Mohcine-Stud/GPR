@@ -2,7 +2,7 @@
 using GestionPretRetour.Application.Persistence.Repositories;
 using GestionPretRetour.Domain.OrderAggregate;
 using GestionPretRetour.Domain.OrderAggregate.Entities;
-using GestionPretRetour.Domain.Users;
+using GestionPretRetour.Domain.UserAggregate;
 
 namespace GestionPretRetour.Application.Orders.Services;
 
