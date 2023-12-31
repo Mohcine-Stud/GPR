@@ -3,5 +3,6 @@
 public enum PenaltyType
 {
     WeekPenalty,
-    MonthPenalty
+    YearPenalty,
+    other
 }

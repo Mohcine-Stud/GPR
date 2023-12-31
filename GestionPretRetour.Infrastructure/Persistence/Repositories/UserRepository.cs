@@ -1,5 +1,6 @@
 ﻿using GestionPretRetour.Application.Persistence.Repositories;
 using GestionPretRetour.Domain.UserAggregate;
+using GestionPretRetour.Domain.UserAggregate.Entities;
 
 namespace GestionPretRetour.Infrastructure.Persistence.Repositories;
 
@@ -16,12 +17,10 @@ public class UserRepository : IUserRepository
         await _Dbcontext.Users.AddAsync(user);
         await _Dbcontext.SaveChangesAsync();
     }
-
     public async Task<User> GetById(Guid Id)
     {
         return await _Dbcontext.Users.FindAsync(Id);
     }
-
     public async Task Update(Guid Id, User user)
     {
         if(user.Id == Id)
@@ -31,4 +30,7 @@ public class UserRepository : IUserRepository
             await _Dbcontext.SaveChangesAsync();
         }
     }
+
+
+
 }

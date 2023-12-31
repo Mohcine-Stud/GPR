@@ -26,7 +26,10 @@ public sealed class User
         AttemptsNumber++;
     }
 
-    
-
-
+    //public IReadOnlyList<Penalty> GetActivePenalties()
+    //{
+    //    return _penalties.Where(p => p.EndDate > DateTime.UtcNow)
+    //        .ToList()
+    //        .AsReadOnly();
+    //}
 }

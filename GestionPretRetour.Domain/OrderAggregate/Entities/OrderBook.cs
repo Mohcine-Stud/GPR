@@ -24,4 +24,8 @@ public class OrderBook
     {
         ActualReturnDate = date;
     }
+    public bool IsReturnedAtExpectedDate(DateTime actualReturnDate)
+    {
+        return ExpectedReturnDate.Date== actualReturnDate.Date;
+    }
 }
