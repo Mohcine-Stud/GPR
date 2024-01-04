@@ -8,6 +8,7 @@ public class Penalty
     public PenaltyType PenaltyType { get; private set; }
     public DateTime StartDate { get; private set; }
     public DateTime EndDate { get; private set; }
+    public bool Status { get; private set; }
     public Guid UserId { get; private set; }
     public Penalty()
     {

@@ -21,4 +21,8 @@
     <ProjectReference Include="..\GestionPretRetour.Application\GestionPretRetour.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="BackroundJobs\" />
+  </ItemGroup>
+
 </Project>

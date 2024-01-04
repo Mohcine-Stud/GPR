@@ -21,14 +21,6 @@ public class CreateOrderService : ICreateOrderService
 
     public async Task<Order> CreateOrder(CreateOrderCommand command)
     {
-        var order = Order.Create(
-            command.UserId,
-            command.Books.ConvertAll(book => OrderBook.Create(
-                book.Id,
-                book.ExpectedReturnDate
-                ))
-            );
-
         var user = await _userRepository.GetById( command.UserId );
         if( user == null )
         {
@@ -40,6 +32,14 @@ public class CreateOrderService : ICreateOrderService
             user.IncrementAttempts();
             await _userRepository.Update(command.UserId, user);
         }
+
+        var order = Order.Create(
+            command.UserId,
+            command.Books.ConvertAll(book => OrderBook.Create(
+                book.Id,
+                book.ExpectedReturnDate
+                ))
+            );
 
         await _orderRepository.Add(order);
 

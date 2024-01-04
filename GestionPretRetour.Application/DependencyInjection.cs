@@ -13,6 +13,7 @@ public static class DependencyInjection
         services.AddMediatR(typeof(DependencyInjection).Assembly);
         services.AddScoped<ICreateOrderService, CreateOrderService>();
         services.AddScoped<IReturnOrderBooksService, ReturnOrderBooksService>();
+        services.AddScoped<IPenaltyService, PenaltyService>();
 
         return services;
     }
